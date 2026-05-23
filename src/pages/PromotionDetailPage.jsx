@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import PageHeader from '../components/PageHeader'
 import SectionTitle from '../components/SectionTitle'
 import PromotionCard from '../components/PromotionCard'
+import Toast from '../components/Toast'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -14,6 +15,29 @@ export default function PromotionDetailPage() {
     const [promo, setPromo] = useState(null)
     const [relatedPromos, setRelatedPromos] = useState([])
     const [loading, setLoading] = useState(true)
+    const [formData, setFormData] = useState({ nombre: '', email: '', mensaje: '' })
+    const [sending, setSending] = useState(false)
+    const [toast, setToast] = useState(null)
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setSending(true)
+        const finalMensaje = `[Consulta Promoción: ${promo.titulo}] ${formData.mensaje}`
+        const { error } = await supabase.from('mensajes_contacto').insert([{
+            nombre: formData.nombre,
+            email: formData.email,
+            telefono: '',
+            mensaje: finalMensaje
+        }])
+
+        if (error) {
+            setToast({ message: 'Error al enviar. Inténtalo de nuevo.', type: 'error' })
+        } else {
+            setToast({ message: 'Mensaje enviado correctamente.', type: 'success' })
+            setFormData({ nombre: '', email: '', mensaje: '' })
+        }
+        setSending(false)
+    }
 
     useEffect(() => {
         AOS.init({ duration: 800, once: true })
@@ -74,6 +98,7 @@ export default function PromotionDetailPage() {
 
     return (
         <div className="bg-white min-h-screen flex flex-col">
+            {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
             <Header />
             <PageHeader
                 title={promo.titulo}
@@ -140,12 +165,37 @@ export default function PromotionDetailPage() {
 
                                 <h4 className="text-dark font-display font-bold text-xl mb-6">Solicitar más información</h4>
 
-                                <form className="space-y-4">
-                                    <input type="text" placeholder="Nombre completo" className="w-full p-4 bg-white border border-gray-200 outline-none focus:border-primary transition-colors" />
-                                    <input type="email" placeholder="Correo electrónico" className="w-full p-4 bg-white border border-gray-200 outline-none focus:border-primary transition-colors" />
-                                    <textarea placeholder="Mensaje" rows="4" className="w-full p-4 bg-white border border-gray-200 outline-none focus:border-primary transition-colors resize-none"></textarea>
-                                    <button className="w-full bg-primary text-white font-bold py-4 uppercase tracking-widest hover:bg-dark transition-all duration-300 transform hover:-translate-y-1">
-                                        Enviar Consulta
+                                <form onSubmit={handleSubmit} className="space-y-4">
+                                    <input 
+                                        type="text" 
+                                        placeholder="Nombre completo" 
+                                        required
+                                        value={formData.nombre}
+                                        onChange={e => setFormData({ ...formData, nombre: e.target.value })}
+                                        className="w-full p-4 bg-white border border-gray-200 outline-none focus:border-primary transition-colors" 
+                                    />
+                                    <input 
+                                        type="email" 
+                                        placeholder="Correo electrónico" 
+                                        required
+                                        value={formData.email}
+                                        onChange={e => setFormData({ ...formData, email: e.target.value })}
+                                        className="w-full p-4 bg-white border border-gray-200 outline-none focus:border-primary transition-colors" 
+                                    />
+                                    <textarea 
+                                        placeholder="Mensaje" 
+                                        rows="4" 
+                                        required
+                                        value={formData.mensaje}
+                                        onChange={e => setFormData({ ...formData, mensaje: e.target.value })}
+                                        className="w-full p-4 bg-white border border-gray-200 outline-none focus:border-primary transition-colors resize-none"
+                                    ></textarea>
+                                    <button 
+                                        type="submit"
+                                        disabled={sending}
+                                        className="w-full bg-primary text-white font-bold py-4 uppercase tracking-widest hover:bg-dark transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50"
+                                    >
+                                        {sending ? 'Enviando...' : 'Enviar Consulta'}
                                     </button>
                                 </form>
 
