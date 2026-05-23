@@ -1,112 +1,65 @@
-# ACC Construcción - Web Corporativa
+# ACC Construcción - Web Corporativa "Arch Pro"
 
-Web corporativa moderna para la empresa de construcción ACC, con panel de administración completo y base de datos en Supabase.
+Este proyecto es una web corporativa moderna para una empresa de construcción, diseñada con un estilo arquitectónico minimalista y funciones avanzadas de administración.
 
-## 🚀 Características
+## 🚀 Tecnologías
 
-### Web Pública
-- **Inicio**: Hero, servicios, proyectos destacados y CTA
-- **Trabajos/Obras**: Galería filtrable por categorías
-- **Promociones**: Promociones inmobiliarias con detalles
-- **Contacto**: Formulario funcional que guarda en base de datos
-- **Diseño responsive** y animaciones modernas (AOS)
+- **Frontend**: React, Vite, Tailwind CSS
+- **Backend**: Supabase (PostgreSQL, Auth, Storage)
+- **Animaciones**: AOS (Animate On Scroll), CSS Transitions
+- **Iconos**: Material Symbols Outlined (Google Fonts)
 
-### Panel de Administración
-- **Dashboard** con estadísticas
-- **CRUD de Trabajos**: Crear, leer, actualizar, eliminar proyectos
-- **CRUD de Promociones**: Gestión de promociones inmobiliarias
-- **Mensajes**: Ver y gestionar mensajes de contacto
+## 🛠️ Instalación y Setup
 
-## 📁 Estructura de Archivos
-
-```
-ACC/
-├── index.html          # Página principal
-├── js/
-│   ├── app.js         # Componentes públicos + configuración
-│   └── admin.js       # Panel de administración
-├── css/               # Estilos adicionales (opcional)
-├── logo.png           # Logo de la empresa
-└── README.md          # Este archivo
-```
-
-## 🔧 Configuración
-
-### Base de Datos (Supabase)
-
-El proyecto está conectado a:
-- **URL**: `https://xtmzmfekecudnjrkqnol.supabase.co`
-- **Proyecto**: ACC
-
-### Tablas creadas:
-- `categorias`: Categorías de proyectos
-- `trabajos`: Proyectos/obras
-- `trabajo_imagenes`: Imágenes de cada trabajo
-- `promociones`: Promociones inmobiliarias
-- `mensajes_contacto`: Mensajes del formulario
-
-## 🔐 Acceso al Panel de Administración
-
-### Enlace Secreto
-El acceso al login **NO está visible** en la navegación pública. Para acceder:
-
-```
-file:///e:/Proyectos/ACC/index.html#/acc-login
-```
-
-O si está desplegado en un servidor:
-```
-https://tu-dominio.com/#/acc-login
-```
-
-### Credenciales de Administrador
-
-```
-Email: admin@acc-construccion.com
-Contraseña: ACC_Admin_2024!
-```
-
-> ⚠️ **IMPORTANTE**: Cambia estas credenciales desde el [Dashboard de Supabase](https://supabase.com/dashboard) después del primer acceso.
-
-## 🖥️ Uso Local
-
-1. Simplemente abre `index.html` en un navegador moderno
-2. O usa un servidor local:
+1. **Clonar el repositorio**:
    ```bash
-   npx serve .
+   git clone <url-del-repo>
+   cd acc-web
    ```
 
-## 📱 Responsive
+2. **Instalar dependencias**:
+   ```bash
+   npm install
+   ```
 
-La web está optimizada para:
-- 📱 Móvil (< 768px)
-- 📱 Tablet (768px - 1024px)
-- 💻 Desktop (> 1024px)
+3. **Variables de Entorno**:
+   Crear un archivo `.env` en la raíz con las credenciales de Supabase:
+   ```env
+   VITE_SUPABASE_URL=tu_supabase_url
+   VITE_SUPABASE_ANON_KEY=tu_supabase_anon_key
+   ```
+   *Nota: El proyecto ya incluye una configuración por defecto en `src/lib/supabase.js`, pero se recomienda usar variables de entorno para producción.*
 
-## 🎨 Tecnologías
+4. **Base de Datos (Supabase)**:
+   Si es una instalación nueva, ejecuta el script SQL en la consola SQL de Supabase:
+   - Archivo: `schema.sql` (en la raíz del proyecto).
 
-- **React 18** (CDN)
-- **TailwindCSS** (CDN)
-- **Supabase** (Backend-as-a-Service)
-- **AOS** (Animate on Scroll)
-- **Google Fonts** (Manrope, Noto Sans)
-- **Material Symbols** (Iconos)
+5. **Bucket de Almacenamiento**:
+   Crear un bucket público en Supabase Storage llamado `imagenes`.
 
-## 📝 Notas de Seguridad
+6. **Ejecutar en desarrollo**:
+   ```bash
+   npm run dev
+   ```
 
-1. El enlace de login (`/acc-login`) es secreto y no debe compartirse públicamente
-2. Las credenciales iniciales deben cambiarse después del primer uso
-3. RLS (Row Level Security) está habilitado en todas las tablas
-4. Los visitantes solo pueden leer datos públicos y enviar mensajes de contacto
+## 🏗️ Estructura del Proyecto
 
-## 🌐 Despliegue
+- `src/components`: Componentes reutilizables (HeroSlider, ProjectCard, Header, etc.)
+- `src/pages`: Páginas públicas y del panel de administración.
+- `src/context`: Contextos de React (AuthContext).
+- `src/lib`: Configuración de servicios externos (suapbase.js).
 
-Para desplegar en producción:
+## 🎨 Estilo "Arch Pro"
 
-1. **GitHub Pages** o **Netlify** (estático)
-2. Sube todos los archivos a un servidor web
-3. Asegúrate de que las URLs de Supabase sean accesibles
+El diseño sigue una línea minimalista con:
+- **Tipografía**: Manrope (Títulos) y Noto Sans (Textos).
+- **Colores**: Dark (`#111418`), Surface (`#1a2632`) y Primary (`#137fec`).
+- **Efectos**: Ken Burns en sliders, transiciones suaves, y tarjetas con overlay.
 
----
+## 🔐 Panel de Administración
 
-© 2024 ACC Construcción S.L. - Desarrollado con ❤️
+Acceso protegido en `/acc-login` (o botón "Panel Admin" en el footer/header si está logueado).
+- **Dashboard**: Estadísticas generales.
+- **Trabajos**: CRUD completo para portafolio.
+- **Promociones**: Gestión de ofertas inmobiliarias.
+- **Mensajes**: Bandeja de entrada de contacto.
