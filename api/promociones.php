@@ -27,6 +27,7 @@ switch ($method) {
                 // Obtener lista de promociones
                 $limit = isset($_GET['limit']) ? intval($_GET['limit']) : 100;
                 $activa = isset($_GET['activa']) ? intval($_GET['activa']) : null;
+                $exclude = isset($_GET['exclude']) ? intval($_GET['exclude']) : null;
                 $order = isset($_GET['order']) ? $_GET['order'] : 'created_at';
                 
                 // Sanitizar campo de ordenamiento
@@ -42,6 +43,11 @@ switch ($method) {
                 if ($activa !== null) {
                     $conditions[] = "activa = ?";
                     $params[] = $activa;
+                }
+                
+                if ($exclude !== null) {
+                    $conditions[] = "id != ?";
+                    $params[] = $exclude;
                 }
                 
                 if (count($conditions) > 0) {

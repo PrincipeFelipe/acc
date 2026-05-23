@@ -38,6 +38,8 @@ switch ($method) {
                 // Obtener lista de trabajos con categorías e imágenes
                 $limit = isset($_GET['limit']) ? intval($_GET['limit']) : 100;
                 $order = isset($_GET['order']) ? $_GET['order'] : 'created_at';
+                $categoria_id = isset($_GET['categoria_id']) ? intval($_GET['categoria_id']) : null;
+                $exclude = isset($_GET['exclude']) ? intval($_GET['exclude']) : null;
                 
                 // Sanitizar campo de ordenamiento
                 $allowedOrders = ['created_at', 'fecha', 'titulo', 'id'];
@@ -49,11 +51,29 @@ switch ($method) {
                     SELECT t.*, c.nombre as categoria_nombre 
                     FROM trabajos t
                     LEFT JOIN categorias c ON t.categoria_id = c.id
-                    ORDER BY t.$order DESC
-                    LIMIT $limit
                 ";
                 
-                $stmt = $pdo->query($sql);
+                $conditions = [];
+                $params = [];
+                
+                if ($categoria_id !== null) {
+                    $conditions[] = "t.categoria_id = ?";
+                    $params[] = $categoria_id;
+                }
+                
+                if ($exclude !== null) {
+                    $conditions[] = "t.id != ?";
+                    $params[] = $exclude;
+                }
+                
+                if (count($conditions) > 0) {
+                    $sql .= " WHERE " . implode(" AND ", $conditions);
+                }
+                
+                $sql .= " ORDER BY t.$order DESC LIMIT $limit";
+                
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute($params);
                 $trabajos = $stmt->fetchAll();
 
                 // Añadir imágenes y sub-objetos a cada trabajo

@@ -50,6 +50,15 @@ class QueryBuilder {
     return this;
   }
 
+  neq(field, value) {
+    if (field === 'id') {
+      this.exclude_id = value;
+    } else {
+      this.params[`neq_${field}`] = value;
+    }
+    return this;
+  }
+
   order(field, options = {}) {
     this.params.order_by = field;
     this.params.order = options.ascending ? 'asc' : 'desc';
@@ -92,12 +101,18 @@ class QueryBuilder {
     if (this.id) {
       queryParts.push(`id=${this.id}`);
     }
-    if (this.params.trabajo_id) {
-      queryParts.push(`trabajo_id=${this.params.trabajo_id}`);
+    if (this.exclude_id) {
+      queryParts.push(`exclude=${this.exclude_id}`);
     }
-    if (this.params.activa !== undefined) {
-      queryParts.push(`activa=${this.params.activa ? 1 : 0}`);
+
+    // Serializar todos los otros parámetros en la URL de forma dinámica
+    for (const [key, val] of Object.entries(this.params)) {
+      if (key !== 'order_by' && key !== 'order' && key !== 'limit') {
+        const paramValue = typeof val === 'boolean' ? (val ? 1 : 0) : encodeURIComponent(val);
+        queryParts.push(`${key}=${paramValue}`);
+      }
     }
+
     if (this.params.limit) {
       queryParts.push(`limit=${this.params.limit}`);
     }
