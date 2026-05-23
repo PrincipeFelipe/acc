@@ -172,6 +172,18 @@ class QueryBuilder {
   }
 }
 
+let authListeners = [];
+
+const triggerAuthChange = (event, session) => {
+  authListeners.forEach(cb => {
+    try {
+      cb(event, session);
+    } catch (e) {
+      console.error("Error in auth listener:", e);
+    }
+  });
+};
+
 export const supabase = {
   from: (table) => new QueryBuilder(table),
   auth: {
@@ -191,6 +203,7 @@ export const supabase = {
         const data = await res.json();
         // Guardar sesión de forma local
         localStorage.setItem('acc_session', JSON.stringify(data.session));
+        triggerAuthChange('SIGNED_IN', data.session);
         return { data: data, error: null };
       } catch (err) {
         return { data: null, error: { message: err.message } };
@@ -199,6 +212,7 @@ export const supabase = {
 
     signOut: async () => {
       localStorage.removeItem('acc_session');
+      triggerAuthChange('SIGNED_OUT', null);
       return { error: null };
     },
 
@@ -210,7 +224,16 @@ export const supabase = {
     onAuthStateChange: (callback) => {
       const session = localStorage.getItem('acc_session');
       callback('SIGNED_IN', session ? JSON.parse(session) : null);
-      return { data: { subscription: { unsubscribe: () => {} } } };
+      authListeners.push(callback);
+      return {
+        data: {
+          subscription: {
+            unsubscribe: () => {
+              authListeners = authListeners.filter(cb => cb !== callback);
+            }
+          }
+        }
+      };
     }
   }
 };
