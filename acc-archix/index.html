@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACC Architecture & Interior | Elegancia y Precisión</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3 transition-header">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <span class="fw-bold fs-4 tracking-tight text-black">ACC</span>
+                <span class="ms-2 fw-light text-muted">ARCHITECTS</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active fw-medium px-3 text-black" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link fw-medium px-3 text-black" href="#about">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium px-3 text-black" href="#services">Servicios</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link fw-medium px-3 text-black" href="#portfolio">Portafolio</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link fw-medium px-3 text-black" href="#contact">Contacto</a></li>
+                </ul>
+                <div class="ms-lg-4">
+                    <a href="#contact" class="btn btn-accent px-4 py-2 fw-bold tracking-wide uppercase small">Solicitar
+                        Cita</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <section id="home" class="hero-section overflow-hidden">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active"
+                    style="background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2670');">
+                    <div class="hero-overlay"></div>
+                    <div class="container h-100 d-flex align-items-center">
+                        <div class="hero-content text-white" data-aos="fade-up" data-aos-duration="1000">
+                            <h6 class="text-accent fw-bold tracking-widest uppercase mb-3">Diseño Arquitectónico</h6>
+                            <h1 class="display-3 fw-bold mb-4">Construyendo Espacios <br><span class="fw-light">De
+                                    Calidad Excepcional</span></h1>
+                            <p class="lead mb-5 max-w-600">Transformamos visiones en realidades estructurales con un
+                                enfoque en la elegancia y la funcionalidad moderna.</p>
+                            <div class="d-flex gap-3">
+                                <a href="#portfolio" class="btn btn-white px-5 py-3 fw-bold">Ver Proyectos</a>
+                                <a href="#contact" class="btn btn-outline-white px-5 py-3 fw-bold">Contáctanos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- slides could be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-100 bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2670" alt="About"
+                            class="img-fluid rounded-1 shadow-lg">
+                        <div class="about-experience bg-accent text-white p-4 position-absolute shadow">
+                            <h2 class="fw-bold mb-0">30+</h2>
+                            <p class="small mb-0 uppercase tracking-widest">Años de Exp.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                    <h6 class="text-accent fw-bold tracking-widest uppercase mb-3">Sobre Nosotros</h6>
+                    <h2 class="h1 fw-bold mb-4 text-black">Elegancia Definida por <br>la Estructura</h2>
+                    <p class="text-muted fs-5 mb-4 mb-lg-5 leading-relaxed">
+                        En ACC Architects, creemos que cada espacio cuenta una historia. Desde nuestra fundación, nos
+                        hemos dedicado a la creación de infraestructuras y viviendas que trascienden lo convencional.
+                    </p>
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-6 d-flex gap-3">
+                            <div class="icon-circle bg-light text-accent flex-shrink-0">
+                                <i class="fa fa-gem"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-black mb-2">Diseño Premium</h5>
+                                <p class="small text-muted mb-0">Atención meticulosa a cada detalle estético y
+                                    funcional.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex gap-3">
+                            <div class="icon-circle bg-light text-accent flex-shrink-0">
+                                <i class="fa fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-black mb-2">Sostenibilidad</h5>
+                                <p class="small text-muted mb-0">Comprometidos con el impacto ambiental positivo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#services"
+                        class="text-black fw-bold text-decoration-none border-bottom border-accent pb-2">Nuestra
+                        Filosofía <i class="fa fa-arrow-right ms-2 fs-small"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-100 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-accent fw-bold tracking-widest uppercase mb-3">Servicios</h6>
+                <h2 class="h1 fw-bold text-black">Lo Que Hacemos Mejor</h2>
+                <div class="divider-center"></div>
+            </div>
+            <div class="row g-4 mt-2">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card p-5 bg-white border-0 shadow-sm h-100 transition-hover">
+                        <div class="display-4 text-accent mb-4 opacity-50"><i class="fa fa-building"></i></div>
+                        <h4 class="fw-bold text-black mb-3">Edificación Residencial</h4>
+                        <p class="text-muted mb-4">Proyectos de viviendas exclusivas donde la arquitectura y el confort
+                            se fusionan en perfecta armonía.</p>
+                        <a href="#" class="btn-link text-accent">Leer más</a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card p-5 bg-white border-0 shadow-sm h-100 transition-hover">
+                        <div class="display-4 text-accent mb-4 opacity-50"><i class="fa fa-couch"></i></div>
+                        <h4 class="fw-bold text-black mb-3">Diseño de Interiores</h4>
+                        <p class="text-muted mb-4">Creamos ambientes únicos que reflejan la personalidad de quienes los
+                            habitan, utilizando materiales nobles.</p>
+                        <a href="#" class="btn-link text-accent">Leer más</a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card p-5 bg-white border-0 shadow-sm h-100 transition-hover">
+                        <div class="display-4 text-accent mb-4 opacity-50"><i class="fa fa-road"></i></div>
+                        <h4 class="fw-bold text-black mb-3">Obra Civil</h4>
+                        <p class="text-muted mb-4">Infraestructuras sólidas y duraderas que conectan comunidades y
+                            facilitan el progreso regional.</p>
+                        <a href="#" class="btn-link text-accent">Leer más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-100 bg-white">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-end mb-5" data-aos="fade-up">
+                <div>
+                    <h6 class="text-accent fw-bold tracking-widest uppercase mb-3">Explora</h6>
+                    <h2 class="h1 fw-bold text-black mb-0">Nuestros Proyectos</h2>
+                </div>
+                <div class="mt-4 mt-md-0">
+                    <ul class="nav filter-nav p-0 m-0">
+                        <li class="nav-item"><a class="nav-link active" href="#" data-filter="*">Todos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-filter=".residential">Residencial</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-filter=".civil">Obra Civil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-filter=".interior">Interiores</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row g-4 portfolio-grid">
+                <div class="col-md-6 col-lg-4 portfolio-item residential" data-aos="zoom-in">
+                    <div class="project-card overflow-hidden position-relative group">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070" alt="Villa"
+                            class="img-fluid transition-img">
+                        <div
+                            class="project-info position-absolute w-100 h-100 d-flex flex-column justify-content-end p-4 transition-overlay">
+                            <span class="text-accent small fw-bold uppercase mb-2">Marbella, ES</span>
+                            <h4 class="text-white fw-bold mb-0">Villa Minimalista</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 portfolio-item interior" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-card overflow-hidden position-relative group">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070"
+                            alt="Interior" class="img-fluid transition-img">
+                        <div
+                            class="project-info position-absolute w-100 h-100 d-flex flex-column justify-content-end p-4 transition-overlay">
+                            <span class="text-accent small fw-bold uppercase mb-2">Madrid, ES</span>
+                            <h4 class="text-white fw-bold mb-0">Loft Contemporáneo</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 portfolio-item civil" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-card overflow-hidden position-relative group">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070" alt="Civil"
+                            class="img-fluid transition-img">
+                        <div
+                            class="project-info position-absolute w-100 h-100 d-flex flex-column justify-content-end p-4 transition-overlay">
+                            <span class="text-accent small fw-bold uppercase mb-2">Sevilla, ES</span>
+                            <h4 class="text-white fw-bold mb-0">Puente Histórico</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5 pt-3">
+                <button class="btn btn-outline-dark px-5 py-3 fw-bold">Ver Todo el Portafolio</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-100 bg-light-accent overflow-hidden">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner text-center">
+                            <div class="carousel-item active">
+                                <div class="testimonial-content p-4">
+                                    <i class="fa fa-quote-left text-accent display-4 mb-4 opacity-50"></i>
+                                    <p class="fs-4 italic text-black mb-4 leading-relaxed">"La atención al detalle y la
+                                        profesionalidad del equipo de ACC superó todas nuestras expectativas. Han
+                                        transformado nuestro hogar en una obra de arte funcional."</p>
+                                    <h5 class="fw-bold text-black mb-1">Carlos Mendoza</h5>
+                                    <p class="small text-muted mb-0 uppercase tracking-widest">Residencial Sky Horizon
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimonial-content p-4">
+                                    <i class="fa fa-quote-left text-accent display-4 mb-4 opacity-50"></i>
+                                    <p class="fs-4 italic text-black mb-4 leading-relaxed">"Un socio de confianza para
+                                        nuestros proyectos de infraestructura. Su cumplimiento de plazos y rigor técnico
+                                        son ejemplares."</p>
+                                    <h5 class="fw-bold text-black mb-1">Admin. Territorial</h5>
+                                    <p class="small text-muted mb-0 uppercase tracking-widest">Obra Pública</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-indicators position-relative mt-4">
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
+                                class="active bg-accent"></button>
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+                                class="bg-accent"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News / Blog -->
+    <section class="py-100 bg-white">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-accent fw-bold tracking-widest uppercase mb-3">Actualidad</h6>
+                <h2 class="h1 fw-bold text-black">Novedades y Artículos</h2>
+                <div class="divider-center"></div>
+            </div>
+            <div class="row g-4 mt-2">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-card group">
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
+                                alt="News" class="img-fluid transition-img rounded-1">
+                        </div>
+                        <div class="px-2">
+                            <span class="text-muted small mb-2 d-block">15 Ene, 2024 | Tendencias</span>
+                            <h4 class="fw-bold text-black mb-3 transition-color hover-accent cursor-pointer">
+                                Sostenibilidad en la construcción moderna</h4>
+                            <p class="text-muted">Exploramos cómo los materiales biodegradables están cambiando el
+                                futuro del diseño...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-card group">
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069"
+                                alt="News" class="img-fluid transition-img rounded-1">
+                        </div>
+                        <div class="px-2">
+                            <span class="text-muted small mb-2 d-block">10 Ene, 2024 | Proyectos</span>
+                            <h4 class="fw-bold text-black mb-3 transition-color hover-accent cursor-pointer">
+                                Inauguración del Edificio Horizon</h4>
+                            <p class="text-muted">Finalizamos uno de nuestros proyectos más ambiciosos hasta la fecha en
+                                el litoral.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-100 bg-dark-section text-white overflow-hidden">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <h6 class="text-accent fw-bold tracking-widest uppercase mb-3 text-accent">Contacto</h6>
+                    <h2 class="h1 fw-bold mb-5">Hablemos Sobre Tu Próximo Proyecto</h2>
+
+                    <div class="contact-info-list space-y-4">
+                        <div class="d-flex gap-4 mb-4">
+                            <div class="icon-circle bg-white-10 text-accent">
+                                <i class="fa fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Visítanos</h5>
+                                <p class="text-gray-400 small mb-0">Paseo de las Palmeras nº 9 – 1º B, 51001 Ceuta</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-4 mb-4">
+                            <div class="icon-circle bg-white-10 text-accent">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Llámanos</h5>
+                                <p class="text-gray-400 small mb-0">+34 956 510 937</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-4 mb-4">
+                            <div class="icon-circle bg-white-10 text-accent">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Escríbenos</h5>
+                                <p class="text-gray-400 small mb-0">ana.maldonado@africanadecontratas.es</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="bg-white p-5 rounded-1 shadow-2xl">
+                        <form class="row g-4">
+                            <div class="col-md-6">
+                                <div class="form-floating text-black">
+                                    <input type="text" class="form-control border-0 border-bottom rounded-0" id="name"
+                                        placeholder="Nombre">
+                                    <label for="name">Nombre Completo</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating text-black">
+                                    <input type="email" class="form-control border-0 border-bottom rounded-0" id="email"
+                                        placeholder="Email">
+                                    <label for="email">Correo Electrónico</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating text-black">
+                                    <input type="text" class="form-control border-0 border-bottom rounded-0"
+                                        id="subject" placeholder="Asunto">
+                                    <label for="subject">Asunto</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating text-black">
+                                    <textarea class="form-control border-0 border-bottom rounded-0"
+                                        placeholder="Mensaje" id="message" style="height: 120px"></textarea>
+                                    <label for="message">Cuéntanos sobre tu proyecto...</label>
+                                </div>
+                            </div>
+                            <div class="col-12 pt-3">
+                                <button type="submit"
+                                    class="btn btn-accent w-100 py-3 fw-bold uppercase tracking-widest animate-hover">Enviar
+                                    Mensaje</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-black text-white border-top border-dark">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <p class="small mb-0 opacity-60">© 2024 ACC Architects & Builders. Todos los derechos reservados.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-4 justify-content-md-end">
+                        <a href="#"
+                            class="text-white opacity-60 hover-opacity-100 transition-all font-bold small text-decoration-none">Privacidad</a>
+                        <a href="#"
+                            class="text-white opacity-60 hover-opacity-100 transition-all font-bold small text-decoration-none">Aviso
+                            Legal</a>
+                        <a href="#"
+                            class="text-white opacity-60 hover-opacity-100 transition-all font-bold small text-decoration-none">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JS -->
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
